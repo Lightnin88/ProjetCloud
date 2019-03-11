@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8" />
+
+        <title>Index</title>
+</head>
+    <body>
+        <form action="{% url 'index' %}" method="post">
+
+          {% csrf_token %}
+
+          {{ form.as_p }}
+
+          <input type="submit" value="Submit">
+        </form>
+        {% if envoi %}
+        <h1> Repositories </h1>
+        {% for repo in repos %}
+        <ul>
+        <li> {{ repo.name }} </li>
+        </ul>
+        {% endfor %}
+        <h1> Nombre de repositories </h1>
+        <p> {{ count_repos }} </p>
+        {% endif %}
+
+
+
+
+
+
+
+
+    </body>
+
+</html>
