@@ -3,7 +3,7 @@ from django import forms
 
 class InfosForm(forms.Form):
 
-    orga_name = forms.CharField(max_length=100)
+    orga_name = forms.CharField(max_length=100, label="Organization name")
 
     def clean(self):
 
@@ -19,4 +19,4 @@ class InfosForm(forms.Form):
                 )
 
 
-        return cleaned_data 
+        return cleaned_data

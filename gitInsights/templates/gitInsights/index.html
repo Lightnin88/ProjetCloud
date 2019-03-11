@@ -7,34 +7,44 @@
         <meta charset="utf-8" />
 
         <title>Index</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        {% load crispy_forms_tags %}
 </head>
     <body>
+      <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand" href="#">GitHub Insights</a>
+      </nav>
         <form action="{% url 'index' %}" method="post">
 
           {% csrf_token %}
 
-          {{ form.as_p }}
+          {{ form.orga_name|as_crispy_field }}
 
-          <input type="submit" value="Submit">
+          <div class="justify-content-center"><input type="submit" value="Submit" class="btn btn-success"></div>
         </form>
-        {% if envoi %}
-        <h1> Repositories </h1>
-        {% for repo in repos %}
-        <ul>
-        <li> {{ repo.name }} </li>
-        </ul>
-        {% endfor %}
-        <h1> Nombre de repositories </h1>
-        <p> {{ count_repos }} </p>
-        {% endif %}
+<br />
 
+{% if envoi %}
+<div class="container">
+<table class="table table-bordered table-sm table-hover" width=>
+<thead class="thead-dark">
+    <tr>
+        <th>Top 10 repositories</th>
+    </tr>
+</thead>
+{% for key,value in reposStars.items|slice:":3" %}
+<tbody>
+    <tr>
+        <td> {{ key }} <br> {{ value }} stars </td>
+    </tr>
+{% endfor %}
 
+</tbody>
+</table>
 
-
-
-
-
-
-    </body>
+{% endif %}
+</div>
+</body>
 
 </html>
