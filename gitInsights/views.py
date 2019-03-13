@@ -33,6 +33,4 @@ def get_repos_stars(repos):
     reposStars = {k: v for k, v in sorted(reposStars.items(), key=lambda x: x[1], reverse=True)[:10]}
     return reposStars
 
-def get_repos_languages(repos):
-
-    
+#def get_repos_languages(repos):
