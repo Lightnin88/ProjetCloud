@@ -38,7 +38,13 @@
 {% for key,value in reposStars.items|slice:":3" %}
 <tbody>
     <tr>
-        <td> {{ key }} <br> {{ value }} stars </td>
+        <td ><div style="width: 1100px;  ">
+                <span style="float: right; text-align: right;">
+                        {{ value }}  <i class="far fa-star"></i>
+                </span>
+                {{ key }}
+                </div> 
+            </td>
     </tr>
 {% endfor %}
 
