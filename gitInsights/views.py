@@ -26,8 +26,13 @@ def informations(request):
 def get_repos_stars(repos):
 
     reposStars = {}
+    #Association Repositories - Stars
     for repo in repos:
         reposStars[repo.name] = repo.stargazers_count
-
-    reposStars = {k: v for k, v in sorted(reposStars.items(), key=lambda x: x[1], reverse=True)}
+    #Tri décroissant en fonction du nombre d'étoiles en limitant à 10 résultats
+    reposStars = {k: v for k, v in sorted(reposStars.items(), key=lambda x: x[1], reverse=True)[:10]}
     return reposStars
+
+def get_repos_languages(repos):
+
+    
