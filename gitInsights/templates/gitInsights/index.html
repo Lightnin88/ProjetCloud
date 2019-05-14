@@ -7,14 +7,16 @@
         <meta charset="utf-8" />
 
         <title>Index</title>
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         {% load crispy_forms_tags %}
 </head>
     <body>
       <nav class="navbar navbar-light bg-light">
           <a class="navbar-brand" href="#">GitHub Insights</a>
       </nav>
+      <a href="{% url 'settings' %}">Settings</a>
+
       <br>
         <form action="{% url 'index' %}" method="post">
 
@@ -28,17 +30,32 @@
 
 {% if envoi %}
 <div class="container">
-
+  <img class="fit-picture"
+      src="{{org.avatar_url}}" width="100" height="100"/>
+      <br />
 <table class="table table-bordered table-sm table-hover">
 <thead class="thead-dark">
     <tr>
         <th>Top 10 repositories (by stars)</th>
     </tr>
 </thead>
-{% for key,value in reposStars.items|slice:":3" %}
+{% for repo in reposList %}
 <tbody>
     <tr>
-        <td> {{ key }} <br> {{ value }} stars </td>
+        <td> {{ repo.titre }} <br>
+                             <span>
+                               {{ repo.starsgazers }}  <i class="far fa-star"></i> </span>
+                            <!--  <br /> Top language : {{ repo.language}}
+                              <br /> Total commits last week : {{ totalCommits }} </td> -->
+                              <br/ > Total commits this week : {{ repo.commits_this_week }}
+                              {% if repo.commits_this_week > repo.commits_last_week  %}
+                              <span><i class="fas fa-arrow-down"></i></span>
+                              {% elif repo.commits_this_week > repo.commits_last_week %}
+                              <span><i class="fas fa-arrow-up"></i></span>
+                              {% else %}
+                              <span><i class="fas fa-minus"></i></span>
+                              {% endif %}
+                              </td>
     </tr>
 {% endfor %}
 
@@ -47,22 +64,11 @@
 
 <br />
 
-<table class="table table-bordered table-sm table-hover">
-<thead class="thead-dark">
-    <tr>
-        <th>Top 10 members (by commits)</th>
-    </tr>
-</thead>
-{% for key,value in reposStars.items|slice:":3" %}
-<tbody>
-    <tr>
-        <td> {{ key }} <br> {{ value }} stars </td>
-    </tr>
-{% endfor %}
 
-</tbody>
-</table>
+{% endif %}
 
+{% if erreur %}
+  <h2>Unknown Organization. <span class="far fa-frown"></span></h2>
 {% endif %}
 
 </div>

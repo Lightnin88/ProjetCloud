@@ -15,8 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from django.conf.urls import url, include
+from gitInsights import views as core_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('gitInsights/', include('gitInsights.urls')),
+    path('login/', auth_views.login, name='login'),
+    path('logout/', auth_views.logout, name='logout'),
+    url(r'^auth/', include('social_django.urls', namespace='social')),
+    url(r'^settings/$', core_views.settings, name='settings'),
+    url(r'^settings/password/$', core_views.password, name='password'),
+
 ]
