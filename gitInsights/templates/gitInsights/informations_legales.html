@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8" />
+
+        <title>Index</title>
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+        {% load crispy_forms_tags %}
+</head>
+    <body>
+      <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand" href="{% url 'index' %}">GitHub Insights</a>
+          <a href="{% url 'settings' %}">Settings</a>
+      </nav>
+
+<h2 class="h3 heading-title">Informations légales</h2>
+    <div class="heading-line">
+                    <span class="short-line"></span>
+                    <span class="long-line"></span>
+                </div>
+
+
+
+        <div class="col-lg-12 contenusimple">
+      <p>Merci de lire attentivement les pr&eacute;sentes modalit&eacute;s d&#39;utilisation du pr&eacute;sent site avant de le parcourir. En vous connectant sur ce site, vous acceptez sans r&eacute;serve les pr&eacute;sentes modalit&eacute;s.
+<h3>Editeur du site</h3>
+
+<div class="coordonnees vcard" style="">
+<p><a style="text-decoration:none"><b>Git Insights</b></a><br />
+par <a href="http://www.epsi.fr/" style="text-decoration:none">Clément HABIB ; Mohammes-Iheb CHERCHIR ; David GALANTIN</a><br />
+<span class="country-name">France</span><br />
+<span class="tel"><span class="type">T&eacute;l. : </span>+ 33 (0)6 69 46 61 18</span><br />
+<br />
+</div>
+<h3>Conditions d&#39;utilisation</h3>
+Le site accessible par les url suivants : www.gitinsights.ovh est exploit&eacute; dans le respect de la l&eacute;gislation fran&ccedil;aise. L&#39;utilisation de ce site est r&eacute;gie par les pr&eacute;sentes conditions g&eacute;n&eacute;rales. En utilisant le site, vous reconnaissez avoir pris connaissance de ces conditions et les avoir accept&eacute;es. Celles-ci pourront &ecirc;tres modifi&eacute;es &agrave; tout moment et sans pr&eacute;avis par la soci&eacute;t&eacute; GitInsights.<br />
+GitInsights ne saurait &ecirc;tre tenu pour responsable en aucune mani&egrave;re d&rsquo;une mauvaise utilisation du service.
+<br />
+<h3>Responsable &eacute;ditorial</h3>
+<div class="coordonnees vcard" style="">
+  <p><a style="text-decoration:none"><b>Git Insights</b></a><br />
+  par <a href="http://www.epsi.fr/" style="text-decoration:none">Clément HABIB ; Mohammes-Iheb CHERCHIR ; David GALANTIN</a><br />
+  <span class="country-name">France</span><br />
+  <span class="tel"><span class="type">T&eacute;l. : </span>+ 33 (0)6 69 46 61 18</span><br />
+  <br />
+</div>
+
+<h3>Limitation de responsabilit&eacute;</h3>
+Les informations contenues sur ce site sont aussi pr&eacute;cises que possibles et le site est p&eacute;riodiquement remis &agrave; jour, mais peut toutefois contenir des inexactitudes, des omissions ou des lacunes. Si vous constatez une lacune, erreur ou ce qui parait &ecirc;tre un dysfonctionnement, merci de bien vouloir le signaler par email en d&eacute;crivant le probl&egrave;me de la mani&egrave;re la plus pr&eacute;cise possible (page posant probl&egrave;me, action d&eacute;clenchante, type d&rsquo;ordinateur et de navigateur utilis&eacute;, &hellip;).<br />
+<br />
+Tout contenu t&eacute;l&eacute;charg&eacute; se fait aux risques et p&eacute;rils de l&#39;utilisateur et sous sa seule responsabilit&eacute;. En cons&eacute;quence, GitInsights ne saurait &ecirc;tre tenu responsable d&#39;un quelconque dommage subi par l&#39;ordinateur de l&#39;utilisateur ou d&#39;une quelconque perte de donn&eacute;es cons&eacute;cutives au t&eacute;l&eacute;chargement.<a style="text-decoration:none">&nbsp;</a> <a href="http://gitinsights.ovh" style="text-decoration:none">&nbsp;</a><br />
+<br />
+Les photos sont non contractuelles.<br />
+<br />
+Les liens hypertextes mis en place dans le cadre du pr&eacute;sent site internet en direction d&#39;autres ressources pr&eacute;sentes sur le r&eacute;seau Internet ne sauraient engager la responsabilit&eacute; de GitInsights.
+<h3>Litiges</h3>
+Les pr&eacute;sentes conditions sont r&eacute;gies par les lois fran&ccedil;aises et toute contestation ou litiges qui pourraient na&icirc;tre de l&#39;interpr&eacute;tation ou de l&#39;ex&eacute;cution de celles-ci seront de la comp&eacute;tence exclusive des tribunaux dont d&eacute;pend le si&egrave;ge social de la soci&eacute;t&eacute; GitInsights. La langue de r&eacute;f&eacute;rence, pour le r&egrave;glement de contentieux &eacute;ventuels, est le fran&ccedil;ais.
+
+<h3>D&eacute;claration &agrave; la CNIL</h3>
+Conform&eacute;ment &agrave; la loi 78-17 du 6 janvier 1978 (modifi&eacute;e par la loi 2004-801 du 6 ao&ucirc;t 2004 relative &agrave; la protection des personnes physiques &agrave; l&#39;&eacute;gard des traitements de donn&eacute;es &agrave; caract&egrave;re personnel) relative &agrave; l&#39;informatique, aux fichiers et aux libert&eacute;s, le site a fait l&#39;objet d&#39;une d&eacute;claration aupr&egrave;s de la Commission nationale de l&#39;informatique et des libert&eacute;s (<a href="http://www.cnil.fr/" style="text-decoration:none" target="_blank">www.cnil.fr</a>).&nbsp;
+
+<h3>Droit d&#39;acc&egrave;s</h3>
+En application de cette loi, les internautes disposent d&rsquo;un droit d&rsquo;acc&egrave;s, de rectification, de modification et de suppression concernant les donn&eacute;es qui les concernent personnellement.
+Les informations personnelles collect&eacute;es ne sont en aucun cas confi&eacute;es &agrave; des tiers hormis pour l&rsquo;&eacute;ventuelle bonne ex&eacute;cution de la prestation command&eacute;e par l&rsquo;internaute.
+<h3>Confidentialit&eacute;</h3>
+Vos donn&eacute;es personnelles sont confidentielles et ne seront en aucun cas communiqu&eacute;es &agrave; des tiers hormis pour la bonne ex&eacute;cution de la prestation.
+
+<h3>Propri&eacute;t&eacute; intellectuelle</h3>
+
+<p>Tout le contenu du pr&eacute;sent site, incluant, de fa&ccedil;on non limitative, les graphismes, images, textes, vid&eacute;os, animations, sons, logos, gifs et ic&ocirc;nes ainsi que leur mise en forme sont la propri&eacute;t&eacute; exclusive de la soci&eacute;t&eacute; GitInsights &agrave; l&#39;exception des marques, logos ou contenus appartenant &agrave; d&#39;autres soci&eacute;t&eacute;s partenaires ou auteurs.<br />
+Toute reproduction, distribution, modification, adaptation, retransmission ou publication, m&ecirc;me partielle, de ces diff&eacute;rents &eacute;l&eacute;ments est strictement interdite sans l&#39;accord expr&egrave;s par &eacute;crit de GitInsights. Cette repr&eacute;sentation ou reproduction, par quelque proc&eacute;d&eacute; que ce soit, constitue une contrefa&ccedil;on sanctionn&eacute;e par les articles L.3335-2 et suivants du Code de la propri&eacute;t&eacute; intellectuelle. Le non-respect de cette interdiction constitue une contrefa&ccedil;on pouvant engager la responsabilit&eacute; civile et p&eacute;nale du contrefacteur. En outre, les propri&eacute;taires des Contenus copi&eacute;s pourraient intenter une action en justice &agrave; votre encontre.<br />
+<br />
+GitInsights est identiquement propri&eacute;taire des &quot;droits des producteurs de bases de donn&eacute;es&quot; vis&eacute;s au Livre III, Titre IV, du Code de la Propri&eacute;t&eacute; Intellectuelle (loi n&deg; 98-536 du 1er juillet 1998) relative aux droits d&#39;auteur et aux bases de donn&eacute;es. <a href="https://www.site-internet-qualite.fr/" style="text-decoration:none"> </a> <a href="http://www.GitInsights-net.fr/" style="text-decoration:none"> </a><br />
+<br />
+Les utilisateurs et visiteurs du site internet peuvent mettre en place un hyperlien en direction de ce site, mais uniquement en direction de la page d&rsquo;accueil, accessible &agrave; l&rsquo;URL suivante : www.site-internet-qualite.fr, &agrave; condition que ce lien s&rsquo;ouvre dans une nouvelle fen&ecirc;tre. En particulier un lien vers une sous page (&laquo; lien profond &raquo;) est interdit, ainsi que l&rsquo;ouverture du pr&eacute;sent site au sein d&rsquo;un cadre (&laquo; framing &raquo;), sauf l&#39;autorisation expresse et pr&eacute;alable de GitInsights.<br />
+<br />
+
+
+<h3>H&eacute;bergeur</h3>
+<span style="font-weight: bold;">Kiubi</span><br />
+Plateforme de gestion et cr&eacute;ation de sites internet<br />
+<a href="http://www.kiubi.com/" style="text-decoration:none" target="_blank">www.kiubi.com</a><br />
+<a href="mailto:contact@kiubi.com?subject=%7BSOCIETE.societe_nom%7D" style="text-decoration:none">contact@kiubi.com</a>
+
+<h2>Conditions de service</h2>
+Ce site est propos&eacute; en langages <strong>HTML5 </strong>et <strong>CSS3</strong>, pour un meilleur confort d&#39;utilisation et un graphisme plus agr&eacute;able, nous vous recommandons de recourir &agrave; des navigateurs modernes comme Safari, Firefox, Chrome,...<a href="https://www.site-internet-qualite.fr/" style="text-decoration:none"> </a> <a href="http://www.GitInsights-net.fr/" style="text-decoration:none"> </a>
+
+<h3>Informations et exclusion</h3>
+GitInsights met en &oelig;uvre tous les moyens dont elle dispose, pour assurer une information fiable et une mise &agrave; jour fiable de ses sites internet. Toutefois, des erreurs ou omissions peuvent survenir. L&#39;internaute devra donc s&#39;assurer de l&#39;exactitude des informations aupr&egrave;s de GitInsights, et signaler toutes modifications du site qu&#39;il jugerait utile. GitInsights n&#39;est en aucun cas responsable de l&#39;utilisation faite de ces informations, et de tout pr&eacute;judice direct ou indirect pouvant en d&eacute;couler.
+
+<h3>Cookies</h3>
+Pour des besoins de statistiques et d&#39;affichage, le pr&eacute;sent site utilise des cookies. Il s&#39;agit de petits fichiers textes stock&eacute;s sur votre disque dur afin d&#39;enregistrer des donn&eacute;es techniques sur votre navigation. Certaines parties de ce site ne peuvent &ecirc;tre fonctionnelle sans l&rsquo;acceptation de cookies.
+
+<h3>Liens hypertextes</h3>
+Les sites internet de GitInsights peuvent offrir des liens vers d&rsquo;autres sites internet ou d&rsquo;autres ressources disponibles sur Internet.<br />
+<br />
+GitInsights ne dispose d&#39;aucun moyen pour contr&ocirc;ler les sites en connexion avec ses sites internet. GitInsights ne r&eacute;pond pas de la disponibilit&eacute; de tels sites et sources externes, ni ne la garantit. Elle ne peut &ecirc;tre tenue pour responsable de tout dommage, de quelque nature que ce soit, r&eacute;sultant du contenu de ces sites ou sources externes, et notamment des informations, produits ou services qu&rsquo;ils proposent, ou de tout usage qui peut &ecirc;tre fait de ces &eacute;l&eacute;ments. Les risques li&eacute;s &agrave; cette utilisation incombent pleinement &agrave; l&#39;internaute, qui doit se conformer &agrave; leurs conditions d&#39;utilisation.<br />
+<br />
+Les utilisateurs, les abonn&eacute;s et les visiteurs des sites internet de GitInsights ne peuvent mettre en place un hyperlien en direction de ce site sans l&#39;autorisation expresse et pr&eacute;alable de GitInsights.<br />
+<br />
+Dans l&#39;hypoth&egrave;se o&ugrave; un utilisateur ou visiteur souhaiterait mettre en place un hyperlien en direction d&rsquo;un des sites internet de GitInsights, il lui appartiendra d&#39;adresser un email accessible sur le site afin de formuler sa demande de mise en place d&#39;un hyperlien. GitInsights se r&eacute;serve le droit d&rsquo;accepter ou de refuser un hyperlien sans avoir &agrave; en justifier sa d&eacute;cision.
+<h3>Recherche</h3>
+En outre, le renvoi sur un site internet pour compl&eacute;ter une information recherch&eacute;e ne signifie en aucune fa&ccedil;on que GitInsights reconna&icirc;t ou accepte quelque responsabilit&eacute; quant &agrave; la teneur ou &agrave; l&#39;utilisation dudit site.
+
+<h3>Pr&eacute;cautions d&#39;usage</h3>
+Il vous incombe par cons&eacute;quent de prendre les pr&eacute;cautions d&#39;usage n&eacute;cessaires pour vous assurer que ce que vous choisissez d&#39;utiliser ne soit pas entach&eacute; d&#39;erreurs voire d&#39;&eacute;l&eacute;ments de nature destructrice tels que virus, trojans, etc....
+
+<h3>Responsabilit&eacute;</h3>
+Aucune autre garantie n&#39;est accord&eacute;e au client, auquel incombe l&#39;obligation de formuler clairement ses besoins et le devoir de s&#39;informer. Si des informations fournies par GitInsights apparaissent inexactes, il appartiendra au client de proc&eacute;der lui-m&ecirc;me &agrave; toutes v&eacute;rifications de la coh&eacute;rence ou de la vraisemblance des r&eacute;sultats obtenus. GitInsights ne sera en aucune fa&ccedil;on responsable vis &agrave; vis des tiers de l&#39;utilisation par le client des informations ou de leur absence contenues dans ses produits y compris un de ses sites Internet.
+
+
+    </div>
+
+
+</body>
+</html>

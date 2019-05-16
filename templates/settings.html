@@ -15,7 +15,8 @@
  </head>
  <body>
    <nav class="navbar navbar-light bg-light">
-       <a class="navbar-brand" href="#">GitHub Insights</a>
+       <a class="navbar-brand" href="{% url 'index' %}">GitHub Insights</a>
+
    </nav>
 
    <h2>Settings</h2>
@@ -35,5 +36,6 @@
       <a href="{% url 'social:begin' 'github' %}">Connect to GitHub</a>
     {% endif %}
     <br />
+    <a href="{% url 'password' %}">Change password</a>
     <a href="{% url 'logout' %}">Logout</a>
  </html>

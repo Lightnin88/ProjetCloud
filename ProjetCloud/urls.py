@@ -27,5 +27,7 @@ urlpatterns = [
     url(r'^auth/', include('social_django.urls', namespace='social')),
     url(r'^settings/$', core_views.settings, name='settings'),
     url(r'^settings/password/$', core_views.password, name='password'),
+    path('', core_views.index, name='index'),
+    path('informations-legales/', core_views.informations_legales, name='informations_legales'),
 
 ]

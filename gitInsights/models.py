@@ -5,6 +5,7 @@ class Repository(models.Model):
     starsgazers = models.IntegerField()
     commits_this_week = models.IntegerField()
     commits_last_week = models.IntegerField()
+    top_language = models.TextField(default=None)
 
     class Meta:
         verbose_name = "repo"

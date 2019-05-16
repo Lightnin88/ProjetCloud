@@ -10,10 +10,11 @@ from social_django.models import UserSocialAuth
 from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
+from social_django.utils import load_strategy
 
 # b96a6ca65f3d7a4215efc16c3ed49f5d7ba2763f
 
-#@login_required
+@login_required
 def index(request):
 
     form = InfosForm(request.POST or None)
@@ -32,7 +33,12 @@ def index(request):
             #Transformation de la PaginatedList en liste classique pour manipuler facilement les repos
             for repo in repos:
                 commitsList = repo.get_stats_participation().all
-                repository = Repository(titre=repo.name, starsgazers=repo.stargazers_count)
+                languages = repo.get_languages()
+                if not languages:
+                    top_language = ''
+                else:
+                    top_language = max(languages.keys(), key=(lambda key: languages[key]))
+                repository = Repository(titre=repo.name, starsgazers=repo.stargazers_count, top_language=top_language)
                 if len(commitsList) >= 2:
                     repository.commits_this_week = commits_this_week=commitsList[-1]
                     repository.commits_last_week = commits_last_week=commitsList[len(commitsList)-2]
@@ -91,3 +97,7 @@ def password(request):
     else:
         form = PasswordForm(request.user)
     return render(request, 'password.html', {'form': form})
+
+
+def informations_legales(request):
+    return render(request, 'gitInsights/informations_legales.html')
