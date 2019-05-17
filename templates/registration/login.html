@@ -15,7 +15,7 @@
   <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand" href="{% url 'index' %}">GitHub Insights</a>
   </nav>
-
+<div class="container">
 <h2>Login</h2>
   <form method="post">
     {% csrf_token %}
@@ -25,6 +25,7 @@
    <br>
   <p><strong>-- OR --</strong></p>
   <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
+</div>
 </body>
-
+<a href="{% url 'legal_information' %}">Legal Information</a>
 </html>

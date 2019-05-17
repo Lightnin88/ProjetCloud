@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from github import Github
 from github.GithubException import UnknownObjectException
-from .forms import InfosForm
+from .forms import InfosForm, AuthenticationFormWithRequiredField
 from gitInsights.models import Repository
 from django.contrib.auth.decorators import login_required
 import operator
@@ -11,6 +11,8 @@ from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeFor
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from social_django.utils import load_strategy
+from django.contrib.auth.views import LoginView
+from django.shortcuts import get_object_or_404
 
 # b96a6ca65f3d7a4215efc16c3ed49f5d7ba2763f
 
@@ -70,7 +72,6 @@ def settings(request):
         github_login = user.social_auth.get(provider='github')
     except UserSocialAuth.DoesNotExist:
         github_login = None
-
     can_disconnect = (user.social_auth.count() > 1 or user.has_usable_password())
 
     return render(request, 'settings.html', {
@@ -99,5 +100,13 @@ def password(request):
     return render(request, 'password.html', {'form': form})
 
 
-def informations_legales(request):
-    return render(request, 'gitInsights/informations_legales.html')
+def legal_information(request):
+    return render(request, 'gitInsights/legal_information.html')
+
+class SampleLoginView(LoginView):
+    form_class = AuthenticationFormWithRequiredField
+
+    def form_valid(self, form):
+        checkbox = form.cleaned_data['required_checkbox']
+        print(checkbox)
+        return super().form_valid(form)

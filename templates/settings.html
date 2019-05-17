@@ -18,7 +18,7 @@
        <a class="navbar-brand" href="{% url 'index' %}">GitHub Insights</a>
 
    </nav>
-
+<div class="container">
    <h2>Settings</h2>
 <br />
     {% if github_login %}
@@ -26,16 +26,19 @@
       {% if can_disconnect %}
         <form method="post" action="{% url 'social:disconnect' 'github' %}">
           {% csrf_token %}
-          <button type="submit">Disconnect from GitHub</button>
+          <button type="submit" class="btn btn-danger">Disconnect from GitHub</button>
         </form>
       {% else %}
-        <button type="button" disabled>Disconnect from GitHub</button>
+        <button type="button" class="btn btn-danger" disabled>Disconnect from GitHub</button>
         <p style="color: red">You must <a href="{% url 'password' %}">define a password</a> for your account before disconnecting from Github.</p>
       {% endif %}
     {% else %}
       <a href="{% url 'social:begin' 'github' %}">Connect to GitHub</a>
     {% endif %}
     <br />
-    <a href="{% url 'password' %}">Change password</a>
-    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'password' %}" class="btn btn-warning" >Change password</a> <br/> <br />
+    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+  </div>
+  </body>
+  <a href="{% url 'legal_information' %}">Legal Information</a>
  </html>
